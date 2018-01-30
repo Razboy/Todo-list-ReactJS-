@@ -1,0 +1,115 @@
+.todoListMain {
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.todoListMain .header input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  width: 165px;
+}
+
+.todoListMain .header button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px;
+  margin-right: 0px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #FFF;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+.todoListMain .header button:hover {
+  background-color:rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+/*/////////////*/
+
+.theList {
+  margin: 20px 0 0 0;
+  padding: 0;
+}
+
+.theList li {
+  cursor: pointer;
+  position: relative;
+  padding: 14px 8px 12px 30px;
+  background: #F0F0F0;
+  font-size: 18px;
+  transition: 0.3s;
+  margin-top: 10px;
+  text-align: left;
+  list-style-type: none;
+}
+
+.theList li:hover {
+  background: #ddd;
+}
+
+.posted-date {
+  right: 20%;
+  position: absolute;
+}
+
+/* BUTTONS */
+
+.up-button {
+  position: absolute;
+  right: 100px;
+  top: 0;
+  height: 48px;
+  width: 48px;
+  padding: 12px 16px 12px 16px;
+  background-color: #abafb3;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+}
+.down-button {
+  position: absolute;
+  right: 50px;
+  top: 0;
+  height: 48px;
+  width: 48px;
+  padding: 12px 16px 12px 16px;
+  background-color: #abafb3;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+}
+.close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 48px;
+  width: 48px;
+  padding: 12px 16px 12px 16px;
+  background-color: #abafb3;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+}
+
+.up-button:hover,
+.down-button:hover {
+	background-color: #1F7710;
+}
+
+.close-button:hover {
+  background-color: #FF3E3E;
+}
+
+  
+  
+  
+
+  
+  
+
