@@ -15,12 +15,23 @@ class TodoList extends Component {
     this.swapUp = this.swapUp.bind(this);
     this.swapDown = this.swapDown.bind(this);
     this.filterList = this.filterList.bind(this);
+    this.searchDelete = this.searchDelete.bind(this);
   }
 
   _handleDelete(id){
     let newItems = this.state.items.filter((el)=> el.key !== id);
     this.setState({items:newItems})
     localStorage.setItem('todos', JSON.stringify(newItems));
+  }
+
+  searchDelete(id){
+    let items = this.state.items
+    let newItems = items.filter((el)=> el.key !== id);
+    localStorage.setItem('todos', JSON.stringify(newItems));
+    let searchResult = newItems.filter((el)=>{
+      return el.text.indexOf(this.state.searchInput) !== -1;
+    });
+    this.setState({searchItems:searchResult, items:newItems})
   }
 
   swapUp(id) {
@@ -53,7 +64,7 @@ class TodoList extends Component {
     localStorage.setItem('todos', JSON.stringify(newItems));
   }
 
-  filterList(e){
+  filterList(e) {
     let input_val = e.target.value;
     let items = this.state.items;
     let searchResult = items.filter(function(el){
@@ -75,8 +86,6 @@ class TodoList extends Component {
    if (this._inputElement.value !== "") {
     itemArray.unshift(
       {
-        // swap
-        
         text: this._inputElement.value,
         key: Date.now()
       }
@@ -121,6 +130,7 @@ class TodoList extends Component {
         <TodoItems swapDown={this.swapDown}
         swapUp={this.swapUp} 
         _handleDelete={this._handleDelete} 
+        searchDelete={this.searchDelete}
         input_val = {this.state.searchInput}
         entries={this.state.items} searchEntries={this.state.searchItems}
         />

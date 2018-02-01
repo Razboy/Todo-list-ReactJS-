@@ -9,8 +9,12 @@ class TodoItems extends Component {
       this.createTasks = this.createTasks.bind(this);
     }
 
-    _handleDelete(id){
+    _handleDelete(id) {
       this.props._handleDelete(id);
+    }
+
+    searchDelete(id) {
+      this.props.searchDelete(id);
     }
 
     swapUp(id) {
@@ -25,9 +29,18 @@ class TodoItems extends Component {
       var now = moment();
       return <li key={value.key}>{value.text}
         <span className="posted-date">{now.format('MMMM DD YYYY')}</span>
-        <button onClick={() => this.swapUp(i)} className="up-button">&#9652;</button>
-        <button onClick={() => this.swapDown(i)} className="down-button">&#9662;</button>
-        <button onClick={() => this._handleDelete(value.key)} className="close-button">&#10008;</button>
+        {
+          this.props.input_val !== '' ? null:
+              <div>
+                <button onClick={() => this.swapUp(i)} className="up-button">&#9652;</button>
+                <button onClick={() => this.swapDown(i)} className="down-button">&#9662;</button>
+              </div>
+        }
+        {
+          this.props.input_val !== ''?
+          <button onClick={() => this.searchDelete(value.key)} className="close-button">&#10008;</button>:
+          <button onClick={() => this._handleDelete(value.key)} className="close-button">&#10008;</button>
+        }
       </li>
     }
 
